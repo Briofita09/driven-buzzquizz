@@ -17,7 +17,6 @@
   </p>
 </p>
 
-
 <details open="open">
   <summary><h2 style="display: inline-block">Abstract</h2></summary>
   <ol>
@@ -30,8 +29,6 @@
   </ol>
 </details>
 
-
-
 ## About The Project
 
 Driven project - BuzzQuizz
@@ -39,8 +36,6 @@ Driven project - BuzzQuizz
 ## Roadmap
 
 See the [open issues](https://github.com/Briofita09/driven-buzzquizz/issues) for a list of proposed features (and known issues).
-
-
 
 ## Contributing
 
@@ -52,10 +47,6 @@ Any contributions you make are **greatly appreciated**.
 4. Push to the Branch (`git push origin feature/<featureName>`)
 5. Open a Pull Request
 
-
-
 ## Contact
-
-Vinícius Kruchelski Gugelmin - vinigugelmin@gmail.com
 
 Project Link: [https://github.com/Briofita09/driven-buzzquizz](https://github.com/Briofita09/driven-buzzquizz)
