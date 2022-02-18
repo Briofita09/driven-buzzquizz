@@ -1,0 +1,14 @@
+.de-header {
+    background-color: #ec362d;
+    width: 100vw;
+    height: 69px;
+}
+
+.de-header__title {
+    color: #fff;
+    font-size: 37px;
+    font-weight: 700;
+    line-height: 44px;
+    text-align: center;
+    padding-top: 13px;
+}

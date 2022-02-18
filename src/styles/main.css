@@ -1,0 +1,11 @@
+/* Base */
+@import 'reset.css';
+@import 'settings.css';
+/* Pages */
+@import 'pages/quizz-creation-page.css';
+/* Layout */
+@import 'layout/header.css';
+@import 'layout/title.css';
+/* Components */
+@import 'components/quizz-creation-box.css';
+@import 'components/quizz.css';
