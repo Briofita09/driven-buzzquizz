@@ -1,5 +1,30 @@
-.de-quizz {}
+.de-quizz__your {
+  display: none;
+}
 
-.de-quizz__container {}
+.de-quizz__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.de-quizz__container--own {}
+.de-quizz-image {
+  width: 340px;
+  height: 181px;
+}
+
+.de-quizz {
+  position: relative;
+  text-align: center;
+}
+
+.de-quizz-title {
+  position: absolute;
+  bottom: 5px;
+  color: #fff;
+  left: 0;
+  right: 0;
+}
+
+.de-your-quizz__container {
+}

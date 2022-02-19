@@ -1,67 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Document</title>
+    <title>Document</title>
 
-  <link rel="stylesheet" href="src/styles/main.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-    rel="stylesheet"
-  />
-</head>
-<body>
-<header class="de-header">
-  <h1 class="de-header__title">BuzzQuizz</h1>
-</header>
-<main class="de-main">
-  <div class="de-quizz-creation-box">
-    <h2 class="de-quizz-creation-box__text">
-      Você não criou nenhum <br />
-      quizz ainda :(
-    </h2>
-    <button class="de-quizz-creation-box__button">Criar Quizz</button>
-  </div>
+    <link rel="stylesheet" href="src/styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="de-header">
+      <h1 class="de-header__title">BuzzQuizz</h1>
+    </header>
+    <main class="de-main">
+      <div class="de-quizz-creation-box">
+        <h2 class="de-quizz-creation-box__text">
+          Você não criou nenhum <br />
+          quizz ainda :(
+        </h2>
+        <button class="de-quizz-creation-box__button">Criar Quizz</button>
+      </div>
 
-  <div class="de-quizz">
-    <h3 class="de-title">Seus Quizzes</h3>
-    <div class="de-quizz__container de-quizz__container--own"></div>
-  </div>
+      <div class="de-quizz__your">
+        <h3 class="de-title">Seus Quizzes</h3>
+        <div class="de-your-quizz__container de-quizz__container--own"></div>
+      </div>
 
-  <div class="de-quizz">
-    <h3 class="de-title">Todos os Quizzes</h3>
-    <div class="de-quizz__container"></div>
-  </div>
+      <div class="de-all-quizz">
+        <h3 class="de-title">Todos os Quizzes</h3>
+        <div class="de-quizz__container"></div>
+      </div>
 
-  <div class="de-quizz-creation-page">
-    <div class="de-quizz-creation-page__form" data-question="start">
-      <h4 class="de-quizz-creation-page__title">Começe pelo começo</h4>
-      <label>
-        <input type="text" placeholder="Titulo do seu quizz" />
-      </label>
-      <label>
-        <input type="text" placeholder="url da imagem do seu quizz" />
-      </label>
-      <label>
-        <input
-          type="text"
-          placeholder="Quantidade de perguntas do seu quizz"
-        />
-      </label>
-      <label>
-        <input type="text" placeholder="Quantidade de níveis do seu quizz" />
-      </label>
-      <button>Prosseguir pra criar perguntas</button>
-    </div>
-    <div class="de-quizz-creation-page__form" data-question="questions"></div>
-    <div class="de-quizz-creation-page__form" data-question="levels"></div>
-    <div class="de-quizz-creation-page__form" data-question="finish"></div>
-  </div>
-</main>
-</body>
+      <div class="de-quizz-creation-page">
+        <div class="de-quizz-creation-page__form" data-question="start">
+          <h4 class="de-quizz-creation-page__title">Começe pelo começo</h4>
+          <label>
+            <input type="text" placeholder="Titulo do seu quizz" />
+          </label>
+          <label>
+            <input type="text" placeholder="url da imagem do seu quizz" />
+          </label>
+          <label>
+            <input type="text" placeholder="Quantidade de perguntas do seu quizz" />
+          </label>
+          <label>
+            <input type="text" placeholder="Quantidade de níveis do seu quizz" />
+          </label>
+          <button>Prosseguir pra criar perguntas</button>
+        </div>
+        <div class="de-quizz-creation-page__form" data-question="questions"></div>
+        <div class="de-quizz-creation-page__form" data-question="levels"></div>
+        <div class="de-quizz-creation-page__form" data-question="finish"></div>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./src/index.js"></script>
+  </body>
 </html>

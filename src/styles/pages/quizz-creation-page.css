@@ -1,5 +1,5 @@
 .de-quizz-creation-page {
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 
