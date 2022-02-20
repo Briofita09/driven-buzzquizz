@@ -1,14 +1,20 @@
 .de-header {
-    background-color: #ec362d;
-    width: 100vw;
-    height: 69px;
+  background-color: #ec362d;
+  width: 100vw;
+  height: 69px;
 }
 
 .de-header__title {
-    color: #fff;
-    font-size: 37px;
-    font-weight: 700;
-    line-height: 44px;
-    text-align: center;
-    padding-top: 13px;
+  color: #fff;
+  font-size: 37px;
+  font-weight: 700;
+  line-height: 44px;
+  text-align: center;
+  padding-top: 13px;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.de-header__title:hover {
+  opacity: 0.8;
 }

@@ -8,6 +8,7 @@
 @import "layout/main.css";
 @import "layout/title.css";
 @import "layout/button.css";
+@import "layout/hide.css";
 /* Components */
 @import "components/quizz-creation-box.css";
 @import "components/quizz.css";

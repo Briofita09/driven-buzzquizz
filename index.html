@@ -17,25 +17,29 @@
   </head>
   <body>
     <header class="de-header">
-      <h1 class="de-header__title">BuzzQuizz</h1>
+      <h1 class="de-header__title" onclick="goToHome()">BuzzQuizz</h1>
     </header>
     <main class="de-main">
-      <div class="de-quizz-creation-box">
-        <h2 class="de-quizz-creation-box__text">Você não criou nenhum quizz ainda :(</h2>
-        <button class="de-button de-quizz-creation-box__button">Criar Quizz</button>
+      <div class="de-page" data-page="home">
+        <div class="de-quizz-creation-box">
+          <h2 class="de-quizz-creation-box__text">Você não criou nenhum quizz ainda :(</h2>
+          <button class="de-button de-quizz-creation-box__button">Criar Quizz</button>
+        </div>
+
+        <div class="de-quizz de-quizz--your">
+          <h3 class="de-title de-quizz__title">Seus Quizzes</h3>
+          <div class="de-your-quizz__container de-quizz__container--own"></div>
+        </div>
+
+        <div class="de-quizz de-quizz--all">
+          <h3 class="de-title de-quizz__title">Todos os Quizzes</h3>
+          <div class="de-quizz__container"></div>
+        </div>
       </div>
 
-      <div class="de-quizz de-quizz--your">
-        <h3 class="de-title de-quizz__title">Seus Quizzes</h3>
-        <div class="de-your-quizz__container de-quizz__container--own"></div>
-      </div>
+      <div class="de-page" data-page="quizz">QUIZZ</div>
 
-      <div class="de-quizz de-quizz--all">
-        <h3 class="de-title de-quizz__title">Todos os Quizzes</h3>
-        <div class="de-quizz__container"></div>
-      </div>
-
-      <div class="de-quizz-creation-page">
+      <div class="de-page de-quizz-creation-page" data-page="quizzForm">
         <div class="de-quizz-creation-page__form" data-question="start">
           <h4 class="de-quizz-creation-page__title">Começe pelo começo</h4>
           <label>
@@ -59,5 +63,6 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./src/index.js"></script>
+    <script src="./src/routes/index.js"></script>
   </body>
 </html>
