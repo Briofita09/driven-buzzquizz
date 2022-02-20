@@ -1,28 +1,30 @@
-function getServerQuizzes() {
-  const response = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes");
-  response.then(renderQuizzes);
-  response.catch(error);
-}
-
-function error(err) {
-  console.log(err);
+function getQuizzes() {
+  axios
+    .get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes")
+    .then(renderQuizzes)
+    .catch(renederQuizzesError);
 }
 
 function renderQuizzes(response) {
-  console.log(response.data);
-  let serverQuizzes = document.querySelector(".de-quizz__container");
-  console.log(serverQuizzes);
-  response.data.map((quizz) => {
-    serverQuizzes.innerHTML += `
-        <div class='de-quizz de-quizz-${quizz.id}'>
-            <img class='de-quizz-image' src=${quizz.image}/>
-            <p class='de-quizz-title'>${quizz.title}</p>
+  console.log({ renderQuizzes: response.data });
+  let quizzesContainer = document.querySelector(".de-quizz__container");
+
+  response.data.map(
+    (quizz) =>
+      (quizzesContainer.innerHTML += `
+        <div class='de-quizz__element de-quizz__element--${quizz.id}'>
+            <img class='de-quizz__element-image' src=${quizz.image} alt=${quizz.title}/>
+            <p class='de-quizz__element-title'>${quizz.title}</p>
         </div>
-      `;
-  });
+      `)
+  );
 }
 
-getServerQuizzes();
+function renederQuizzesError(err) {
+  console.log(err);
+}
+
+getQuizzes();
 
 function goToCreateQuizz() {
   let;
