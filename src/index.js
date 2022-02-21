@@ -28,7 +28,7 @@ function renderQuizzesError(err) {
   console.log(err);
 }
 
-window.addEventListener("getQuizzes", () => getQuizzes());
+getQuizzes();
 
 function loadQuizz() {
   const quizzId = new URLSearchParams(window.location.search).get("q");

@@ -1,5 +1,5 @@
 const routes = [
-  ["", null, "home", () => window.dispatchEvent(new Event("getQuizzes"))],
+  ["", null, "home", () => {}],
   ["quizz", "true", "quizz", () => window.dispatchEvent(new Event("loadQuizz"))],
 ];
 
@@ -50,7 +50,7 @@ function goToHome() {
 }
 
 function goToQuizz(quizzId) {
-  window.history.pushState(null, null, `/?quizz=true&q=${quizzId}`);
+  window.history.pushState({}, document.title, `${window.location.pathname}?quizz=true&q=${quizzId}`);
   window.dispatchEvent(new Event("locationchange"));
 }
 
