@@ -48,9 +48,15 @@ function renderQuizz(response) {
 
   const quizzQuestions = document.querySelector(".de-quizz-page__questions");
 
+  quizzQuestions.innerHTML = "";
+
+  quizzBanner.scrollIntoView({
+    behavior: "smooth",
+  });
+
   response.data.questions.map((question, questionIndex) => {
     quizzQuestions.innerHTML += `
-      <div class='de-quizz-page__question' data-question="${questionIndex}">
+      <div class='de-quizz-page__question' data-question="${questionIndex}" data-answered="false">
         <p class='de-quizz-page__question-title' style="background: ${question.color}">${question.title}</p>
         <div class='de-quizz-page__question-answers'></div>
       </div>
@@ -60,9 +66,9 @@ function renderQuizz(response) {
       `.de-quizz-page__question[data-question="${questionIndex}"] .de-quizz-page__question-answers`
     );
 
-    question.answers.map((answer) => {
+    question.answers.sort(() => Math.random() - 0.5).map((answer) => {
       questionAnswers.innerHTML += `
-        <div class='de-quizz-page__question-answer' data-answer="${answer.isCorrectAnswer}">
+        <div class='de-quizz-page__question-answer' data-answer="${answer.isCorrectAnswer}" onclick="selectAnswer(this)">
           <img class='de-quizz-page__answer-image' src=${answer.image} alt="${answer.text.replace(" ", "-")}"/>
           <p class='de-quizz-page__answer-title'>${answer.text}</p>
         </div>
@@ -70,6 +76,7 @@ function renderQuizz(response) {
     });
   });
 
+  initQuizz(response.data);
 }
 
 function renderQuizzError(err) {
