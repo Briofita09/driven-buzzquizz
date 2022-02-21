@@ -1,3 +1,7 @@
 .de-main {
   padding: 0 18px;
 }
+
+.de-main--full-width {
+  padding: 0;
+}

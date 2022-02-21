@@ -20,10 +20,10 @@
       <h1 class="de-header__title" onclick="goToHome()">BuzzQuizz</h1>
     </header>
     <main class="de-main">
-      <div class="de-page" data-page="home">
+      <div class="de-page de-hide" data-page="home">
         <div class="de-quizz-creation-box">
           <h2 class="de-quizz-creation-box__text">Você não criou nenhum quizz ainda :(</h2>
-          <button class="de-button de-quizz-creation-box__button">Criar Quizz</button>
+          <button class="de-button de-quizz-creation-box__button" onclick="goToQuizzForm()">Criar Quizz</button>
         </div>
 
         <div class="de-quizz de-quizz--your">
@@ -37,10 +37,13 @@
         </div>
       </div>
 
-      <div class="de-page" data-page="quizz">QUIZZ</div>
+      <div class="de-page de-quizz-page de-hide" data-page="quizz">
+        <div class="de-quizz-page__banner"></div>
+        <div class="de-quizz-page__questions"></div>
+      </div>
 
-      <div class="de-page de-quizz-creation-page" data-page="quizzForm">
-        <div class="de-quizz-creation-page__form" data-question="start">
+      <div class="de-page de-quizz-creation-page de-hide" data-page="quizzForm">
+        <div class="de-quizz-creation-page__form" data-form="start">
           <h4 class="de-quizz-creation-page__title">Começe pelo começo</h4>
           <label>
             <input type="text" placeholder="Titulo do seu quizz" />
@@ -56,9 +59,9 @@
           </label>
           <button>Prosseguir pra criar perguntas</button>
         </div>
-        <div class="de-quizz-creation-page__form" data-question="questions"></div>
-        <div class="de-quizz-creation-page__form" data-question="levels"></div>
-        <div class="de-quizz-creation-page__form" data-question="finish"></div>
+        <div class="de-quizz-creation-page__form" data-form="questions"></div>
+        <div class="de-quizz-creation-page__form" data-form="levels"></div>
+        <div class="de-quizz-creation-page__form" data-form="finish"></div>
       </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

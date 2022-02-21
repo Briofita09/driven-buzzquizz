@@ -1,9 +1,10 @@
+let routeFound = null;
 const routes = [
-  ["", null, "home", () => {}],
-  ["quizz", "true", "quizz", () => window.dispatchEvent(new Event("loadQuizz"))],
+  ["", "home", () => {}],
+  ["quizz", "quizz", () => window.dispatchEvent(new Event("loadQuizz"))],
 ];
 
-window.onload = controlRoute;
+window.onload = () => controlRoute();
 
 window.addEventListener("locationchange", () => {
   controlRoute();
@@ -14,23 +15,20 @@ window.onpopstate = () => {
 };
 
 function controlRoute() {
-  let routeFound = null;
+  routeFound = null;
 
   const urlSearchParams = new URLSearchParams(window.location.search);
   const params = Object.fromEntries(urlSearchParams.entries());
 
   for (let route of routes) {
-    if (params[route[0]] !== route[1]) continue;
+    if (params[route[0]] !== "true") continue;
 
-    routeFound = route[2];
-    route[3]();
+    routeFound = route[1];
+    route[2]();
     break;
   }
 
-  const pages = document.querySelectorAll(`.de-page`);
-  pages.forEach((page) => {
-    page.classList.add("de-hide");
-  });
+  disableAllPages();
 
   if (!routeFound) {
     goToHome();
@@ -41,12 +39,33 @@ function controlRoute() {
   page.classList.remove("de-hide");
 }
 
+function disableAllPages() {
+  document.querySelector("main").classList[routeFound === "quizz" ? "add" : "remove"]("de-main--full-width");
+
+  const pages = document.querySelectorAll(`.de-page`);
+  pages.forEach((page) => {
+    page.classList.add("de-hide");
+  });
+}
+
+function clearPages() {
+  const quizzBanner = document.querySelector(".de-quizz-page__banner");
+  quizzBanner.innerHTML = "";
+  quizzBanner.style.background = "";
+
+  const quizzQuestions = document.querySelector(".de-quizz-page__questions");
+  quizzQuestions.innerHTML = "";
+}
+
 function goToHome() {
+  routeFound = "home";
   window.history.pushState({}, document.title, window.location.pathname);
+
+  disableAllPages();
+  clearPages();
 
   const homePage = document.querySelector(`.de-page[data-page='home']`);
   homePage.classList.remove("de-hide");
-  routes[0][3]();
 }
 
 function goToQuizz(quizzId) {
@@ -55,5 +74,5 @@ function goToQuizz(quizzId) {
 }
 
 function goToQuizzForm() {
-  let;
+  console.log('goToQuizzForm');
 }

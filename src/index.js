@@ -6,7 +6,7 @@ function getQuizzes() {
 }
 
 function renderQuizzes(response) {
-  console.log({ renderQuizzes: response.data });
+  console.log({renderQuizzes: response.data});
   let quizzesContainer = document.querySelector(".de-quizz__container");
 
   response.data.map(
@@ -17,7 +17,7 @@ function renderQuizzes(response) {
           data-quizz='${quizz.id}'
           onclick="goToQuizz(${quizz.id})"
         >
-            <img class='de-quizz__element-image' src=${quizz.image} alt=${quizz.title}/>
+            <img class='de-quizz__element-image' src=${quizz.image} alt="${quizz.title.replace(" ", "-")}"/>
             <p class='de-quizz__element-title'>${quizz.title}</p>
         </div>
       `)
@@ -40,11 +40,41 @@ function loadQuizz() {
 }
 
 function renderQuizz(response) {
-  console.log(response);
+  console.log(response.data);
+  const quizzBanner = document.querySelector(".de-quizz-page__banner");
+
+  quizzBanner.innerText = response.data.title;
+  quizzBanner.style.background = `url(${response.data.image}) center no-repeat`;
+
+  const quizzQuestions = document.querySelector(".de-quizz-page__questions");
+
+  response.data.questions.map((question, questionIndex) => {
+    quizzQuestions.innerHTML += `
+      <div class='de-quizz-page__question' data-question="${questionIndex}">
+        <p class='de-quizz-page__question-title' style="background: ${question.color}">${question.title}</p>
+        <div class='de-quizz-page__question-answers'></div>
+      </div>
+    `;
+
+    const questionAnswers = document.querySelector(
+      `.de-quizz-page__question[data-question="${questionIndex}"] .de-quizz-page__question-answers`
+    );
+
+    question.answers.map((answer) => {
+      questionAnswers.innerHTML += `
+        <div class='de-quizz-page__question-answer' data-answer="${answer.isCorrectAnswer}">
+          <img class='de-quizz-page__answer-image' src=${answer.image} alt="${answer.text.replace(" ", "-")}"/>
+          <p class='de-quizz-page__answer-title'>${answer.text}</p>
+        </div>
+      `;
+    });
+  });
+
 }
 
 function renderQuizzError(err) {
   console.log(err);
+  goToHome();
 }
 
 window.addEventListener("loadQuizz", () => loadQuizz());
