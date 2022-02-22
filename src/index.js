@@ -6,7 +6,6 @@ function getQuizzes() {
 }
 
 function renderQuizzes(response) {
-  console.log({renderQuizzes: response.data});
   let quizzesContainer = document.querySelector(".de-quizz__container");
 
   response.data.map(
@@ -40,7 +39,6 @@ function loadQuizz() {
 }
 
 function renderQuizz(response) {
-  console.log(response.data);
   const quizzBanner = document.querySelector(".de-quizz-page__banner");
 
   quizzBanner.innerText = response.data.title;
@@ -56,21 +54,21 @@ function renderQuizz(response) {
 
   response.data.questions.map((question, questionIndex) => {
     quizzQuestions.innerHTML += `
-      <div class='de-quizz-page__question' data-question="${questionIndex}" data-answered="false">
-        <p class='de-quizz-page__question-title' style="background: ${question.color}">${question.title}</p>
-        <div class='de-quizz-page__question-answers'></div>
+      <div class='de-quizz-question' data-question="${questionIndex}" data-answered="false">
+        <p class='de-quizz-question__title' style="background: ${question.color}">${question.title}</p>
+        <div class='de-quizz-answers'></div>
       </div>
     `;
 
     const questionAnswers = document.querySelector(
-      `.de-quizz-page__question[data-question="${questionIndex}"] .de-quizz-page__question-answers`
+      `.de-quizz-question[data-question="${questionIndex}"] .de-quizz-answers`
     );
 
     question.answers.sort(() => Math.random() - 0.5).map((answer) => {
       questionAnswers.innerHTML += `
-        <div class='de-quizz-page__question-answer' data-answer="${answer.isCorrectAnswer}" onclick="selectAnswer(this)">
-          <img class='de-quizz-page__answer-image' src=${answer.image} alt="${answer.text.replace(" ", "-")}"/>
-          <p class='de-quizz-page__answer-title'>${answer.text}</p>
+        <div class='de-quizz-answer' data-answer="${answer.isCorrectAnswer}" onclick="selectAnswer(this)">
+          <img class='de-quizz-answer__image' src=${answer.image} alt="${answer.text.replace(" ", "-")}"/>
+          <p class='de-quizz-answer__title'>${answer.text}</p>
         </div>
       `;
     });

@@ -14,3 +14,6 @@
 /* Components */
 @import "components/quizz-creation-box.css";
 @import "components/quizz.css";
+@import "components/quizz-question.css";
+@import "components/quizz-answer.css";
+@import "components/quizz-result.css";
